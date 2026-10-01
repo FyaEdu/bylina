@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BYLINA — An Interactive Journey Through Russian Folklore</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div id="app">
+
+<!-- ============================================================
+     PAGE 1 — COVER
+     ============================================================ -->
+<section id="page-1" class="page active layer-historical">
+  <div class="cover">
+    <div class="cover-illustration">
+      <img src="assets/illustrations/cover.png" alt="A bogatyr on horseback overlooking a river valley and a walled city at sunset">
+    </div>
+    <div class="cover-veil"></div>
+    <div class="cover-content">
+      <h1 class="cover-title">Bylina</h1>
+      <p class="cover-subtitle">An Interactive Journey Through Russian Folklore</p>
+      <button class="btn-begin" onclick="nextPage()">Begin the Journey →</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PAGE 2 — WHAT IS BYLINA?
+     ============================================================ -->
+<section id="page-2" class="page layer-historical">
+  <div class="page-inner">
+    <div class="two-col">
+      <div>
+        <p class="eyebrow">Chapter One</p>
+        <h2>What is a Bylina?</h2>
+        <p class="lede">A <em>bylina</em> (plural: <em>byliny</em>) is a traditional East Slavic epic song — a narrative poem once sung rather than read, carried from voice to voice for centuries before anyone wrote it down.</p>
+        <p>Byliny tell of <strong>bogatyrs</strong>, heroic warrior-guardians who defend the land and its people, alongside princes, monsters, and ordinary travellers. The stories blend real historical memory — old cities, real threats at the frontier — with legend, exaggeration, and wonder.</p>
+        <p>They belonged to an oral tradition: performed by singer-storytellers, often to the accompaniment of a stringed instrument, and reshaped a little with every telling. What survives today comes from versions collected by folklorists in the 19th and 20th centuries, mostly from tellers in the Russian North.</p>
+        <p>Tap each idea below to see what makes a bylina a bylina.</p>
+        <div class="tap-grid">
+          <button class="tap-card" data-reveal>
+            <div class="tap-title">Oral Tradition</div>
+            <div class="tap-answer">Byliny were memorised and performed aloud, not read from a page. Each performer could vary length, detail and emphasis.</div>
+          </button>
+          <button class="tap-card" data-reveal>
+            <div class="tap-title">Heroes</div>
+            <div class="tap-answer">Bogatyrs are the genre's central figures: larger-than-life defenders whose strength serves the community, not just themselves.</div>
+          </button>
+          <button class="tap-card" data-reveal>
+            <div class="tap-title">Epic Tales</div>
+            <div class="tap-answer">Stories unfold as long narrative songs with recognisable patterns: a call to action, a journey, a trial, and a resolution.</div>
+          </button>
+          <button class="tap-card" data-reveal>
+            <div class="tap-title">Memory</div>
+            <div class="tap-answer">Byliny preserve fragments of real medieval history — cities, rulers, threats from the steppe — reworked through generations of retelling.</div>
+          </button>
+        </div>
+      </div>
+      <div class="illustration-frame">
+        <img src="assets/illustrations/storyteller.png" alt="A folk singer performs on a gusli by candlelight for a gathered audience in a wooden izba">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PAGE 3 — THE WORLD OF BYLINA
+     ============================================================ -->
+<section id="page-3" class="page layer-historical">
+  <div class="page-inner">
+    <p class="eyebrow">Chapter Two</p>
+    <h2>The World of Bylina</h2>
+    <p class="lede">The stories move between the walled city, the deep forest and the open steppe — each a different kind of danger and possibility. Click a place on the map to learn what it meant in these tales.</p>
+    <div class="two-col" style="align-items:flex-start;">
+      <div class="map-wrap illustration-frame">
+        <img src="assets/illustrations/map.png" alt="An illustrated fantasy map of forests, a river and a walled city set within open plains">
+        <button class="hotspot" style="left:54%; top:36%;" data-title="Kyiv" data-text="An important setting in many heroic traditions — a walled city that heroes set out from, and return to." aria-label="Kyiv"></button>
+        <button class="hotspot" style="left:82%; top:46%;" data-title="The Steppe" data-text="A landscape associated with journeys, encounters and conflict, lying beyond the safety of the settlement." aria-label="The Steppe"></button>
+        <button class="hotspot" style="left:14%; top:30%;" data-title="The Forest" data-text="A place of danger and mystery, home to strange creatures and hidden threats in many byliny." aria-label="The Forest"></button>
+        <button class="hotspot" style="left:66%; top:82%;" data-title="The River Lands" data-text="Rivers structure travel and trade in these tales, and often mark the edge between the known and the unknown." aria-label="The River Lands"></button>
+      </div>
+      <div>
+        <div class="map-info">
+          <div class="map-info-title">Tap a marker</div>
+          <div class="map-info-text">Explore the settings where these stories unfold.</div>
+        </div>
+        <p style="margin-top:1.2em; font-size:0.92rem; opacity:0.75;">This map is a stylised composite for storytelling purposes, not a precise historical survey.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PAGE 4 — THE BOGATYRS
+     ============================================================ -->
+<section id="page-4" class="page layer-historical">
+  <div class="page-inner">
+    <p class="eyebrow">Chapter Three</p>
+    <h2>The Bogatyrs</h2>
+    <p class="lede">A bogatyr is a heroic warrior-figure of East Slavic epic tradition — strong, loyal to their people, and often larger than life. Three of the most celebrated appear together across many byliny. Click each to learn more.</p>
+    <div class="hero-row">
+      <div class="hero-card" data-name="Ilya Muromets" data-role="The Elder Bogatyr" data-text="The most senior and revered of the three, known for immense strength gained later in life and steady, protective leadership.">
+        <img src="assets/illustrations/hero-ilya.png" alt="Ilya Muromets, an armored elder warrior on a dark horse">
+        <div class="hero-name">Ilya Muromets</div>
+      </div>
+      <div class="hero-card" data-name="Dobrynya Nikitich" data-role="The Noble Bogatyr" data-text="Refined and courteous, often called upon for diplomacy as much as battle, and known for skill with a bow.">
+        <img src="assets/illustrations/hero-dobrynya.png" alt="Dobrynya Nikitich, a bearded warrior with a bow on horseback">
+        <div class="hero-name">Dobrynya Nikitich</div>
+      </div>
+      <div class="hero-card" data-name="Alyosha Popovich" data-role="The Clever Bogatyr" data-text="The youngest of the three, valued for wit and quick thinking as much as raw strength — you'll meet him properly next.">
+        <img src="assets/illustrations/hero-alyosha.png" alt="Alyosha Popovich, a young warrior with a red cloak holding a spear">
+        <div class="hero-name">Alyosha Popovich</div>
+      </div>
+    </div>
+    <div class="hero-detail">Click a bogatyr above to read about them.</div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PAGE 5 — ALYOSHA POPOVICH
+     ============================================================ -->
+<section id="page-5" class="page layer-historical">
+  <div class="page-inner">
+    <div class="two-col">
+      <div class="illustration-frame">
+        <img src="assets/illustrations/alyosha-horse.png" alt="Alyosha Popovich in a red cloak riding a white horse through golden fields, a distant city behind him">
+      </div>
+      <div>
+        <p class="eyebrow">Chapter Four</p>
+        <h2>Alyosha Popovich</h2>
+        <p class="lede">The youngest of the three great bogatyrs, and a priest's son by birth — his name comes from <em>pop</em>, meaning priest.</p>
+        <p>Where Ilya Muromets is known for steady strength and Dobrynya Nikitich for noble skill, Alyosha's byliny prize his wit. He is quick to size up a situation, willing to bend the rules of a fair fight, and unafraid to use trickery when brute force would fail.</p>
+        <p>He appears in several tales, most famously in his confrontation with the monstrous Tugarin Zmeyevich, which you'll experience in the next chapter.</p>
+        <p>Tap each trait to reveal what it means for his character.</p>
+        <div class="trait-grid">
+          <button class="trait-chip" data-text="Alyosha out-thinks opponents rather than simply out-fighting them, often noticing an opening others miss.">Clever</button>
+          <button class="trait-chip" data-text="He does not hesitate to act, even against opponents who seem far stronger than him.">Bold</button>
+          <button class="trait-chip" data-text="Several tales show him bending the expected rules of combat — deception is treated as a valid heroic tool.">Trickster-like</button>
+          <button class="trait-chip" data-text="For all his cunning, he is still counted among the great defenders of the land, alongside Ilya and Dobrynya.">Heroic</button>
+        </div>
+        <div class="trait-answer">Select a trait to learn more.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PAGE 6 — ALYOSHA & TUGARIN
+     ============================================================ -->
+<section id="page-6" class="page layer-story">
+  <div class="page-inner">
+    <p class="eyebrow">Chapter Five</p>
+    <h2>Alyosha & Tugarin</h2>
+    <div class="two-col">
+      <div class="illustration-frame">
+        <img src="assets/illustrations/confrontation.png" alt="Alyosha Popovich on horseback raising his sword against the monstrous Tugarin Zmeyevich">
+      </div>
+      <div>
+        <p class="lede">A dramatic turn: this bylina describes Alyosha's encounter with Tugarin Zmeyevich, a monstrous invader threatening the land. Step through the scene.</p>
+        <div class="scene-stage">
+          <div id="scene-1" class="scene-block active">
+            <div class="scene-label">Scene 1</div>
+            <p>Alyosha rides out and encounters Tugarin at the edge of a wide field. The invader is enormous, arrogant, and certain of an easy victory.</p>
+            <button class="btn-continue" data-next-scene="2">Continue ↓</button>
+          </div>
+          <div id="scene-2" class="scene-block">
+            <div class="scene-label">Scene 2</div>
+            <p>The confrontation begins. Tugarin boasts of his strength. Alyosha, far smaller, must decide how to answer a threat he cannot match by force alone.</p>
+            <button class="btn-continue" data-next-scene="3">Continue ↓</button>
+          </div>
+          <div id="scene-3" class="scene-block">
+            <div class="scene-label">Scene 3 — Your Choice</div>
+            <p>What does Alyosha do?</p>
+            <div class="scene-actions">
+              <button class="btn-choice" data-outcome="Alyosha charges directly. In the traditional tale, brute force alone is not what wins the day — his cleverness matters more than his sword arm.">Charge Forward</button>
+              <button class="btn-choice" data-outcome="Alyosha looks for an opening Tugarin can't see coming. This matches the spirit of the traditional bylina, where his wit — not just his strength — decides the outcome.">Outsmart the Opponent</button>
+            </div>
+            <div id="choice-outcome" class="outcome-box" style="display:none;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PAGE 7 — ENTER THE TALE
+     ============================================================ -->
+<section id="page-7" class="page layer-story">
+  <div class="page-inner">
+    <p class="eyebrow">Chapter Six</p>
+    <h2>Enter the Tale</h2>
+    <p class="lede" style="margin:0 auto 1.4em; text-align:center;">Before the tale continues, prove you know its hero. <strong>Find Alyosha</strong> among the figures below — look for the one carrying his mark.</p>
+    <div class="game-stage">
+      <img src="assets/illustrations/enter-tale.png" alt="Four warriors stand on a hilltop overlooking a distant city at sunset">
+      <button class="figure-target" data-correct="false" tabindex="0" style="left:0%; width:19%; top:28%; height:66%;" aria-label="Figure 1"></button>
+      <button class="figure-target" data-correct="false" tabindex="0" style="left:15%; width:29%; top:25%; height:69%;" aria-label="Figure 2"></button>
+      <button class="figure-target" data-correct="true" tabindex="0" style="left:43%; width:24%; top:17%; height:78%;" aria-label="Figure 3"></button>
+      <button class="figure-target" data-correct="false" tabindex="0" style="left:79%; width:21%; top:29%; height:64%;" aria-label="Figure 4"></button>
+    </div>
+    <div id="game-feedback" class="game-feedback">Find Alyosha among the figures above.</div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PAGE 8 — WHY BYLINA MATTERS
+     ============================================================ -->
+<section id="page-8" class="page layer-historical">
+  <div class="page-inner">
+    <p class="eyebrow">Chapter Seven</p>
+    <h2>Why Bylina Matters</h2>
+    <p class="lede">These songs did more than entertain. They carried memory, identity and shared values across generations who had no written record of their own history. Click each stage below.</p>
+    <div class="timeline">
+      <button class="timeline-stage active" data-text="A singer's voice was the only medium: no recordings, no printed pages — just breath, rhythm and memory.">
+        <div class="timeline-dot">1</div>
+        <div class="timeline-label">Voice</div>
+      </button>
+      <button class="timeline-stage" data-text="The voice shaped events into story: giving them structure, characters and stakes that made them memorable.">
+        <div class="timeline-dot">2</div>
+        <div class="timeline-label">Story</div>
+      </button>
+      <button class="timeline-stage" data-text="Repeated retelling turned story into shared memory — a community's sense of its own heroic past.">
+        <div class="timeline-dot">3</div>
+        <div class="timeline-label">Memory</div>
+      </button>
+      <button class="timeline-stage" data-text="That memory keeps being reshaped by new tellers, scholars, artists and, today, new media — carrying bylina into the future.">
+        <div class="timeline-dot">4</div>
+        <div class="timeline-label">Future</div>
+      </button>
+    </div>
+    <div class="timeline-detail">A singer's voice was the only medium: no recordings, no printed pages — just breath, rhythm and memory.</div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PAGE 9 — FROM FOLKLORE TO FANTASY
+     ============================================================ -->
+<section id="page-9" class="page layer-historical">
+  <div class="page-inner">
+    <p class="eyebrow">Chapter Eight</p>
+    <h2>From Folklore to Fantasy</h2>
+    <p class="lede">Old folklore does not stay still. Across the centuries, bylina motifs — heroic warriors, monstrous foes, journeys through wild lands — have resurfaced in new stories, reimagined for new audiences.</p>
+    <div class="split">
+      <div class="split-half trad">
+        <h3>Traditional Bylina</h3>
+        <p>Oral epic songs, performed by named and unnamed folk singers, collected and written down by folklorists starting in the 19th century. Rooted in specific regional traditions and historical memory.</p>
+      </div>
+      <div class="split-half fantasy">
+        <h3>Modern Fantasy Interpretation</h3>
+        <p>Contemporary games, films, and books that borrow atmosphere, character types, or imagery from folklore traditions like bylina — reworked freely as fiction, not historical record.</p>
+      </div>
+    </div>
+    <p class="split-divider-label">These are two different things — inspiration is not equivalence.</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     PAGE 10 — MODERN ECHO
+     ============================================================ -->
+<section id="page-10" class="page layer-fantasy">
+  <div class="page-inner">
+    <p class="eyebrow">Chapter Nine</p>
+    <h2>Modern Echo</h2>
+    <p class="lede">Some modern fantasy settings draw on Slavic-inspired atmosphere — snowy landscapes, folk-costume silhouettes, epic tones. The video game <em>Genshin Impact</em>'s region of Snezhnaya is one widely-known example of this kind of borrowing.</p>
+    <div class="note-box">This is a case of modern fantasy <strong>reinterpreting</strong> cultural imagery and atmosphere — not a retelling of any specific bylina, and not a claim that any fictional character literally is a traditional bogatyr like Alyosha Popovich.</div>
+    <div class="compare-grid">
+      <div class="compare-card">
+        <h4>Traditional Folklore</h4>
+        <ul>
+          <li>Specific named heroes with documented traditional stories</li>
+          <li>Transmitted orally, then recorded by folklorists</li>
+          <li>Rooted in a particular historical and regional context</li>
+        </ul>
+      </div>
+      <div class="compare-card">
+        <h4>Modern Fantasy</h4>
+        <ul>
+          <li>Original fictional characters and worlds</li>
+          <li>Created by contemporary writers, artists and designers</li>
+          <li>Free to borrow mood and imagery without historical obligation</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PAGE 11 — INTERACTIVE EXPERIENCE
+     ============================================================ -->
+<section id="page-11" class="page layer-story">
+  <div class="page-inner">
+    <p class="eyebrow">Chapter Ten</p>
+    <h2>The Interactive Experience</h2>
+    <p class="lede">Everything you've explored, gathered in one place. Revisit any part of the journey.</p>
+    <div class="showcase-grid">
+      <div class="showcase-card" data-goto-page="6"><h4>Story</h4><p>Relive Alyosha's confrontation with Tugarin and its branching outcome.</p></div>
+      <div class="showcase-card" data-goto-page="3"><h4>Map</h4><p>Return to the world of Kyiv, the steppe, the forest and the river lands.</p></div>
+      <div class="showcase-card" data-goto-page="4"><h4>Characters</h4><p>Meet the bogatyrs — Ilya, Dobrynya, and Alyosha.</p></div>
+      <div class="showcase-card" data-goto-page="7"><h4>Mini-Games</h4><p>Test what you remember by finding Alyosha again.</p></div>
+      <div class="showcase-card" data-audio-panel><h4>Audio</h4><p>Listen to Russian or English narration (when available).</p></div>
+      <div class="showcase-card" data-gesture-note><h4>Gesture</h4><p>Future hand-motion interaction — coming soon.</p></div>
+    </div>
+    <div class="audio-controls">
+      <button class="audio-btn" data-audio="ru">🔊 Russian</button>
+      <button class="audio-btn" data-audio="en">🔊 English</button>
+      <button class="audio-btn" data-audio="stop">🔇 Stop</button>
+    </div>
+    <p class="audio-note">Narration files are not bundled in this build. Buttons are wired and ready — drop matching audio files into <code>assets/audio/</code> to activate playback.</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     PAGE 12 — ENDING
+     ============================================================ -->
+<section id="page-12" class="page layer-historical">
+  <div class="ending">
+    <div class="ending-illustration">
+      <img src="assets/illustrations/ending.png" alt="A lone cloaked figure stands on a cliff overlooking a misty river valley and distant city at dusk">
+    </div>
+    <div class="ending-veil"></div>
+    <div class="ending-content">
+      <p class="ending-message">"Stories survive when they are remembered, retold, and reimagined."</p>
+      <div class="ending-actions">
+        <button id="restart-btn" class="btn-end">Restart the Journey</button>
+        <button id="references-btn" class="btn-end">References</button>
+      </div>
+      <ul id="references-panel" class="references-panel">
+        <li>publicadomain.ru — <a href="https://publicadomain.ru/russkie-narodnye-byliny" target="_blank" rel="noopener">Russian folk byliny (collection)</a></li>
+        <li>publicadomain.ru — <a href="https://publicadomain.ru/russkie-narodnye-byliny/pro-alyoshu-popovicha" target="_blank" rel="noopener">Pro Alyoshu Popovicha</a></li>
+        <li>Wikipedia — <a href="https://en.wikipedia.org/wiki/Bylina" target="_blank" rel="noopener">Bylina</a></li>
+        <li>Wikipedia — <a href="https://en.wikipedia.org/wiki/Alyosha_Popovich" target="_blank" rel="noopener">Alyosha Popovich</a></li>
+        <li>Wikimedia Commons — <a href="https://commons.wikimedia.org/wiki/File:1898_Vasnetsov_Bogatyrs_anagoria.JPG" target="_blank" rel="noopener">Viktor Vasnetsov, "Bogatyrs" (1898)</a></li>
+        <li>All illustrations in this site are original SVG artwork created for this project, not reproductions of the artworks above.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+</div><!-- /#app -->
+
+<!-- Page-corner navigation (book-like fold, or HUD bracket on page 10) -->
+<button id="nav-prev" class="page-fold prev" aria-label="Previous page"><span class="fold-shape"></span><span class="fold-digital"></span></button>
+<button id="nav-next" class="page-fold next" aria-label="Next page"><span class="fold-shape"></span><span class="fold-digital"></span></button>
+
+<!-- Navigation -->
+<nav class="nav-bar">
+  <button id="nav-journey" class="nav-btn nav-journey-btn">☰ <span class="label">Journey</span></button>
+  <span id="nav-position" class="nav-center">Page 1 / 12</span>
+  <span style="width:96px" aria-hidden="true"></span>
+</nav>
+
+<!-- Journey overlay -->
+<div id="journey-overlay" class="journey-overlay">
+  <div class="journey-panel">
+    <h3>The Journey</h3>
+    <p class="journey-sub">Jump to any chapter</p>
+    <ul id="journey-list" class="journey-list"></ul>
+    <button id="journey-close" class="journey-close">Close</button>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
