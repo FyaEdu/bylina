@@ -1,8 +1,6 @@
 /* ===================================================================
    BYLINA — App logic
-   Vanilla JS, no dependencies. Structured so a future hand-tracking
-   input layer (e.g. MediaPipe) can call the same functions a mouse
-   or touch event calls today.
+   Vanilla JS, no dependencies.
    =================================================================== */
 
 const TOTAL_PAGES = 12;
@@ -28,9 +26,7 @@ let state = {
 };
 
 /* -------------------------------------------------------------
-   CORE NAVIGATION — this is the layer a future hand-tracking
-   module should call. Do not implement fake camera tracking here;
-   these functions simply need to remain the single entry point.
+   CORE NAVIGATION
    ------------------------------------------------------------- */
 
 function goToPage(n, opts){
@@ -176,28 +172,10 @@ function spawnDigitalSweep(direction){
   sweep.addEventListener('animationend', () => sweep.remove());
 }
 
-/** Generic "select a target" hook — used today by clicks/taps on
- *  hotspots, cards, and figures. A hand-tracking pointer can call
- *  this directly with the element it resolved a gesture to. */
-function selectTarget(el){
-  if(!el) return;
-  el.click();
-}
-
-/** Generic confirm hook — used for advancing a gated interaction. */
-function confirm(el){
-  if(el) el.click();
-}
-
-/** Generic reveal hook — toggles any element carrying data-reveal. */
+/** Toggles any tap-to-reveal element (used by the "What is Bylina?" cards). */
 function reveal(el){
   if(!el) return;
   el.classList.toggle('open');
-}
-
-function startMiniGame(){
-  const feedback = document.getElementById('game-feedback');
-  if(feedback) feedback.textContent = 'Find Alyosha among the figures below.';
 }
 
 function completeMiniGame(){
@@ -365,14 +343,6 @@ function initShowcase(){
     card.addEventListener('click', () => {
       if(card.dataset.gotoPage){
         goToPage(Number(card.dataset.gotoPage));
-        return;
-      }
-      if(card.hasAttribute('data-audio-panel')){
-        document.querySelector('#page-11 .audio-controls .audio-btn')?.focus();
-        return;
-      }
-      if(card.hasAttribute('data-gesture-note')){
-        card.querySelector('p').textContent = 'The navigation functions (nextPage, previousPage, selectTarget, confirm) are already modular, ready for a hand-tracking library to call them directly.';
       }
     });
   });
@@ -386,34 +356,6 @@ function initEnding(){
   const refBtn = document.getElementById('references-btn');
   const refPanel = document.getElementById('references-panel');
   refBtn.addEventListener('click', () => refPanel.classList.toggle('open'));
-}
-
-/* -------------------------------------------------------------
-   AUDIO ARCHITECTURE (no autoplay; files not bundled)
-   Buttons are wired to an interface that a real <audio> element
-   can be dropped into later — see assets/audio/README.txt
-   ------------------------------------------------------------- */
-let activeAudioBtn = null;
-
-function initAudioControls(){
-  document.querySelectorAll('.audio-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.audio-btn').forEach(b => b.classList.remove('playing'));
-      if(activeAudioBtn === btn){
-        activeAudioBtn = null;
-        return;
-      }
-      if(btn.dataset.audio === 'stop'){
-        activeAudioBtn = null;
-        return;
-      }
-      btn.classList.add('playing');
-      activeAudioBtn = btn;
-      // Placeholder: when audio files exist, load and play them here, e.g.
-      // const audio = new Audio(`assets/audio/${btn.dataset.audio}.mp3`);
-      // audio.play();
-    });
-  });
 }
 
 /* -------------------------------------------------------------
@@ -449,6 +391,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initTimeline();
   initShowcase();
   initEnding();
-  initAudioControls();
   updateNavUI();
 });
