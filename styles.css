@@ -165,18 +165,6 @@ button:focus-visible, .hotspot:focus-visible, .journey-item:focus-visible{
   max-width: 62ch;
 }
 
-/* texture overlay for parchment feel */
-.grain{
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  opacity: 0.05;
-  mix-blend-mode: multiply;
-  background-image: radial-gradient(circle at 20% 30%, #000 0.5px, transparent 0.5px),
-                     radial-gradient(circle at 70% 60%, #000 0.5px, transparent 0.5px);
-  background-size: 3px 3px, 5px 5px;
-}
-
 /* ===================================================================
    Cover — Page 1
    =================================================================== */
@@ -515,11 +503,22 @@ button:focus-visible, .hotspot:focus-visible, .journey-item:focus-visible{
   background: rgba(255,255,255,0.04);
   font-style: italic;
 }
+.echo-card{
+  margin-top: 1.4em;
+  border: 1px solid var(--fantasy-accent);
+  background: rgba(111,183,201,0.07);
+  padding: 20px 22px;
+}
+.echo-card h4{ color: var(--fantasy-ice); margin-bottom: 0.5em; }
+.echo-card p{ margin: 0 0 0.6em 0; }
+.echo-card p:last-child{ margin-bottom: 0; }
+.echo-source{ font-size: 0.85rem; opacity: 0.75; }
+.echo-source a{ color: var(--fantasy-ice); text-decoration: underline; }
 
 /* showcase (Page 11) */
 .showcase-grid{
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 16px;
   margin-top: 1.6em;
 }
@@ -535,24 +534,9 @@ button:focus-visible, .hotspot:focus-visible, .journey-item:focus-visible{
 .showcase-card h4{ margin-bottom: 6px; }
 .showcase-card p{ font-size: 0.92rem; margin: 0; opacity: 0.85; }
 
-/* audio controls */
-.audio-controls{
-  display: flex;
-  gap: 10px;
-  margin-top: 1.6em;
-  flex-wrap: wrap;
+@media (max-width: 1040px){
+  .showcase-grid{ grid-template-columns: repeat(2, 1fr); }
 }
-.audio-btn{
-  background: transparent;
-  border: 1px solid var(--gold);
-  color: inherit;
-  padding: 9px 16px;
-  border-radius: var(--radius);
-  font-size: 0.92rem;
-}
-.layer-story .audio-btn{ border-color: var(--story-ember); }
-.audio-btn.playing{ background: var(--gold); color: var(--ink); }
-.audio-note{ font-size: 0.8rem; opacity: 0.65; margin-top: 6px; }
 
 /* ending (Page 12) */
 .ending{
