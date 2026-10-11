@@ -65,6 +65,7 @@ function goToPage(n, opts){
     if(newEl) newEl.classList.add('active');
   }
   if(newEl) newEl.scrollTop = 0;
+  updateFoldVisibility();
 }
 
 function nextPage(){ goToPage(state.currentPage + 1, { sequential: true }); }
@@ -203,9 +204,25 @@ function updateNavUI(){
   document.querySelectorAll('.journey-item').forEach(item => {
     item.classList.toggle('current', Number(item.dataset.page) === state.currentPage);
   });
-  const pageEl = document.getElementById('page-' + state.currentPage);
-  const isFantasy = !!(pageEl && pageEl.classList.contains('layer-fantasy'));
-  document.body.setAttribute('data-nav-theme', isFantasy ? 'fantasy' : 'default');
+  // The modern-fantasy page swaps the paper-curl corner for a plain
+  // HUD-style bracket, since a page-curl image doesn't fit that mood.
+  const activeEl = document.getElementById('page-' + state.currentPage);
+  document.body.classList.toggle('theme-fantasy-nav', !!activeEl && activeEl.classList.contains('layer-fantasy'));
+}
+
+/** The page-corner buttons stay hidden while there is more content below
+ *  to scroll through, and appear the instant the reader reaches the
+ *  bottom of that page. Pages short enough to need no scrolling always
+ *  show them. */
+function updateFoldVisibility(){
+  const activeEl = document.getElementById('page-' + state.currentPage);
+  const prevBtn = document.getElementById('nav-prev');
+  const nextBtn = document.getElementById('nav-next');
+  if(!activeEl || !prevBtn || !nextBtn) return;
+  const scrollable = activeEl.scrollHeight > activeEl.clientHeight + 2;
+  const atBottom = !scrollable || (activeEl.scrollTop + activeEl.clientHeight >= activeEl.scrollHeight - 2);
+  prevBtn.classList.toggle('fold-hidden', !atBottom);
+  nextBtn.classList.toggle('fold-hidden', !atBottom);
 }
 
 /* -------------------------------------------------------------
@@ -374,6 +391,14 @@ function initNav(){
     if(e.key === 'ArrowLeft') previousPage();
     if(e.key === 'Escape') closeJourney();
   });
+  // Scroll doesn't bubble, so listen in the capture phase to catch it
+  // on whichever .page element is currently scrolling.
+  document.addEventListener('scroll', (e) => {
+    if(e.target && e.target.classList && e.target.classList.contains('page')){
+      updateFoldVisibility();
+    }
+  }, true);
+  window.addEventListener('resize', updateFoldVisibility);
 }
 
 /* -------------------------------------------------------------
@@ -392,4 +417,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initShowcase();
   initEnding();
   updateNavUI();
+  updateFoldVisibility();
 });
